@@ -11,7 +11,14 @@ module.exports = server => {
 };
 
 function register(req, res) {
-  // implement user registration
+  // allows a new user to register
+  //   expected structure
+  //   {
+  //     "username": "string",
+  //     "password": "string"
+  // }
+  //   tested via postman at http://localhost:3300/api/register/ -- status 201
+
   let user = req.body;
   const hash = bcrypt.hashSync(user.password, 10);
   user.password = hash;
@@ -28,7 +35,32 @@ function register(req, res) {
 }
 
 function login(req, res) {
-  // implement user login
+  // allows a user to login
+  //   expected structure
+  //   {
+  //     "username": "string",
+  //     "password": "string"
+  // }
+  //   tested via postman at http://localhost:3300/api/login/ -- status 200
+  let { username, password } = req.body;
+
+  Users.findBy({ username })
+    .first()
+    .then(user => {
+      if (user && bcrypt.compareSync(password, user.password)) {
+        const token = generateToken(user);
+        res.status(200).json({
+          message: `Success! Welcome ${user.username}!`,
+          token
+        });
+      } else {
+        res.status(401).json({ message: "Incorrect username or password" });
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json(error);
+    });
 }
 
 function getJokes(req, res) {
