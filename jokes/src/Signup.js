@@ -25,7 +25,7 @@ class Signup extends React.Component {
     }
   };
 
-  handlChange = e => {
+  handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
