@@ -32,7 +32,7 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 1. What is the purpose of using _sessions_?
 
-- Sessions utilizes cookies instead of token auth. If you want some cookies, you can use sessions for that. It allows the server to store information pertaining to a specific user. One common use for cookies is to store session data.
+- Sessions utilizes cookies instead of token auth. If you want some cookies, you can use sessions for that. It allows the server to store information pertaining to a specific user. One common use for cookies is to store session data inclueding anonymous info such as pages viewed or searches. 
 
 2. What does bcrypt do to help us store passwords in a secure manner.
 

@@ -1,6 +1,8 @@
 import React from "react";
 import api from "./helpers/api";
 import withAuth from "./helpers/auth";
+import "./index.css";
+
 
 class Jokes extends React.Component {
   state = {

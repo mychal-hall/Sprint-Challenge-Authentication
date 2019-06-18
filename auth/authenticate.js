@@ -16,7 +16,7 @@ function generateToken(user) {
     subject: user.id,
     username: user.username
   };
-
+// token will expire is set in the options
   const options = {
     expiresIn: "2h"
   };

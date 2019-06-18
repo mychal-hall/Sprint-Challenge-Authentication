@@ -3,6 +3,8 @@ import { Route, NavLink, withRouter } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./Signup";
 import Jokes from "./Jokes";
+import "./index.css";
+
 
 class App extends React.Component {
   logout = () => {
@@ -13,22 +15,20 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>Welcome</h1>
-
-        <ul>
-          <li>
+        <div className="navBar">
+          <a>
             <NavLink to="/login">Login</NavLink>
-          </li>
-          <li>
+          </a>
+          <a>
             <NavLink to="/signup">Signup</NavLink>
-          </li>
-          <li>
+          </a>
+          <a>
             <NavLink to="/jokes">Jokes</NavLink>
-          </li>
-          <li>
-            <button onClick={this.logout}>Logout</button>
-          </li>
-        </ul>
+          </a>
+          <a>
+            <button className="logoutBtn" onClick={this.logout}>Logout</button>
+          </a>
+        </div>
 
         <main>
           <Route path="/login" component={Login} />

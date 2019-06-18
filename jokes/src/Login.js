@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import api from "./helpers/api";
+import "./index.css";
+
 
 class Login extends React.Component {
   state = {
@@ -36,7 +38,7 @@ class Login extends React.Component {
       <>
         <h2>Login</h2>
 
-        <form onSubmit={this.handleSubmit}>
+        <form className="form" onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="username"
@@ -51,7 +53,7 @@ class Login extends React.Component {
             onChange={this.handleChange}
             value={this.state.password}
           />
-          <button type="submit">Log In</button>
+          <button className="logoutBtn" type="submit">Log In</button>
         </form>
       </>
     );
